@@ -1,7 +1,8 @@
 package com.github.glomadrian.materialanimatedswitch.painter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.support.annotation.DrawableRes;
+
 import com.github.glomadrian.materialanimatedswitch.MaterialAnimatedSwitchState;
 import com.github.glomadrian.materialanimatedswitch.R;
 import com.github.glomadrian.materialanimatedswitch.observer.BallFinishObservable;
@@ -30,9 +31,9 @@ public class IconReleasePainter extends IconPainter {
   private int middle;
   private boolean alphaEnterTrigger = false;
 
-  public IconReleasePainter(Context context, Bitmap bitmap,
+  public IconReleasePainter(Context context, @DrawableRes int drawableId,
       BallFinishObservable ballFinishObservable, int margin) {
-    super(context, bitmap, margin);
+    super(context, drawableId, margin);
     initValueAnimator();
     this.ballFinishObservable = ballFinishObservable;
     initObserver();

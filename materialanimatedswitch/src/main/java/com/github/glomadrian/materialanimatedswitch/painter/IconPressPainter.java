@@ -1,7 +1,8 @@
 package com.github.glomadrian.materialanimatedswitch.painter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.support.annotation.DrawableRes;
+
 import com.github.glomadrian.materialanimatedswitch.R;
 import com.github.glomadrian.materialanimatedswitch.MaterialAnimatedSwitchState;
 import com.github.glomadrian.materialanimatedswitch.observer.BallFinishObservable;
@@ -26,9 +27,9 @@ public class IconPressPainter extends IconPainter {
   private int ballRadius;
   private BallMoveObservable ballMoveObservable;
 
-  public IconPressPainter(Context context, Bitmap bitmap, BallFinishObservable ballFinishObservable,
-      BallMoveObservable ballMoveObservable, int margin) {
-    super(context, bitmap, margin);
+  public IconPressPainter(Context context, @DrawableRes int drawableId, BallFinishObservable ballFinishObservable,
+                          BallMoveObservable ballMoveObservable, int margin) {
+    super(context, drawableId, margin);
     initValueAnimator();
     this.ballFinishObservable = ballFinishObservable;
     this.ballMoveObservable = ballMoveObservable;

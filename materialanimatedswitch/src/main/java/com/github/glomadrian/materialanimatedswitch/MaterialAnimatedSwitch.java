@@ -2,11 +2,10 @@ package com.github.glomadrian.materialanimatedswitch;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
@@ -40,8 +39,10 @@ public class MaterialAnimatedSwitch extends View {
     private int ballColorRelease = Color.parseColor("#5992FB");
     private int ballColorPress = Color.parseColor("#FFFFFF");
     private int ballShadowColor = Color.parseColor("#99000000");
-    private Bitmap releaseIcon;
-    private Bitmap pressIcon;
+    @DrawableRes
+    private int releaseIcon;
+    @DrawableRes
+    private int pressIcon;
     private BallFinishObservable ballFinishObservable;
     private BallMoveObservable ballMoveObservable;
     private boolean isClickable = true;
@@ -107,12 +108,12 @@ public class MaterialAnimatedSwitch extends View {
                 ballColorRelease);
         ballColorPress =
                 attributes.getColor(R.styleable.materialAnimatedSwitch_ball_press_color, ballColorPress);
-        pressIcon = BitmapFactory.decodeResource(getResources(),
+        pressIcon =
                 attributes.getResourceId(R.styleable.materialAnimatedSwitch_icon_press,
-                        R.drawable.tack_save_button_32_blue));
-        releaseIcon = BitmapFactory.decodeResource(getResources(),
+                        R.drawable.tack_save_button_32_blue);
+        releaseIcon =
                 attributes.getResourceId(R.styleable.materialAnimatedSwitch_icon_release,
-                        R.drawable.tack_save_button_32_white));
+                        R.drawable.tack_save_button_32_white);
     }
 
     private void initObservables() {

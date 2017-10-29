@@ -172,6 +172,22 @@ public class MaterialAnimatedSwitch extends View {
         }
     }
 
+    private void setStateChecked(boolean setChecked) {
+        isRefreshable = true;
+        removeCallbacks(cancelTask);
+        postDelayed(cancelTask, 1000);
+
+        if (setChecked && actualState.equals(MaterialAnimatedSwitchState.RELEASE)) {
+            actualState = MaterialAnimatedSwitchState.PRESS;
+            setState(actualState);
+            invalidate();
+        } else if (!setChecked && actualState.equals(MaterialAnimatedSwitchState.PRESS)) {
+            actualState = MaterialAnimatedSwitchState.RELEASE;
+            setState(actualState);
+            invalidate();
+        }
+    }
+
     private void doActionDown() {
         isRefreshable = true;
         removeCallbacks(cancelTask);
@@ -196,6 +212,17 @@ public class MaterialAnimatedSwitch extends View {
         if (isClickable) {
             isToggle = true;
             doActionDown();
+        }
+    }
+
+    /**
+     * Set the toggle to checked or unchecked
+     * @param isChecked True to set it to checked, false to set to uncheck
+     */
+    public void setChecked(boolean isChecked) {
+        if (isClickable) {
+            isToggle = true;
+            setStateChecked(isChecked);
         }
     }
 

@@ -125,7 +125,7 @@ public class MaterialAnimatedSwitch extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = Utils.dpToPx(45, getResources());
-        int height = Utils.dpToPx(33.6f, getResources());
+        int height = Utils.dpToPx(28, getResources());
         setMeasuredDimension(width, height);
         basePainter.onSizeChanged(height, width);
         ballShadowPainter.onSizeChanged(height, width);

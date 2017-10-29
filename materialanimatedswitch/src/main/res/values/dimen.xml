@@ -5,7 +5,7 @@
   <dimen name="enterYAnimationStart">-30dp</dimen>
   <dimen name="enterAnimationStartValue">-25dp</dimen>
   <dimen name="exitAnimationExitValue">25dp</dimen>
-  <dimen name="icon_size">11dp</dimen>
+  <dimen name="icon_size">14dp</dimen>
   <dimen name="margin">14dp</dimen>
   <dimen name="ball_radius">11dp</dimen>
   <dimen name="ball_start_position">12dp</dimen>
